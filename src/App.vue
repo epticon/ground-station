@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="uk-background-cover">
     <router-view/>
   </div>
 </template>
-
-<style lang="scss">
-</style>

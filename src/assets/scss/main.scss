@@ -1,0 +1,13 @@
+@import "./map";
+@import "./sidebar";
+
+body {
+  min-height: 100vh;
+  // color: #ffffff;
+}
+
+.full-height {
+  max-height: 100vh;
+  overflow-y: auto;
+  min-height: 100vh;
+}
