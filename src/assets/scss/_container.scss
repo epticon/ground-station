@@ -47,4 +47,10 @@
       width: 100%;
     }
   }
+  .responsive-tab {
+    .nav-pills {
+      flex-direction: row !important;
+      flex-wrap: nowrap;
+    }
+  }
 }

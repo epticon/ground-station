@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card no-body>
-      <b-tabs pills card vertical content-class="mt-3">
+      <b-tabs pills card vertical class="responsive-tab">
         <b-tab
           v-for="({ title, fields, description, route, active }, index) in views"
           :key="`tab_${index}`"
