@@ -1,56 +1,61 @@
 {
-  "name": "pilot-ground-station",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
-  },
-  "dependencies": {
-    "@vuikit/icons": "^0.8.1",
-    "@vuikit/theme": "^0.8.1",
-    "bootstrap": "^4.3.1",
-    "bootstrap-vue": "^2.0.0-rc.14",
-    "mapbox-gl": "^0.53.0-beta.1",
-    "mapbox-gl-vue": "^1.9.0",
-    "register-service-worker": "^1.5.2",
-    "vue": "^2.5.21",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vuikit": "^0.8.10"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.4.0",
-    "@vue/cli-plugin-eslint": "^3.3.0",
-    "@vue/cli-plugin-pwa": "^3.3.0",
-    "@vue/cli-plugin-unit-mocha": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "@vue/test-utils": "^1.0.0-beta.20",
-    "babel-eslint": "^10.0.1",
-    "chai": "^4.1.2",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "lint-staged": "^8.1.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.21"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
+	"name": "pilot-ground-station",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"test:e2e": "vue-cli-service test:e2e",
+		"test:unit": "vue-cli-service test:unit"
+	},
+	"dependencies": {
+		"@vuikit/icons": "^0.8.1",
+		"@vuikit/theme": "^0.8.1",
+		"async-retry": "^1.2.3",
+		"big-integer": "^1.6.43",
+		"bootstrap": "^4.3.1",
+		"bootstrap-vue": "^2.0.0-rc.22",
+		"mapbox-gl": "^0.53.0-beta.1",
+		"mapbox-gl-vue": "^1.9.0",
+		"register-service-worker": "^1.5.2",
+		"vue": "^2.6.10",
+		"vue-native-websocket": "^2.0.13",
+		"vue-router": "^3.0.1",
+		"vuedraggable": "^2.21.0",
+		"vuex": "^3.0.1",
+		"vuikit": "^0.8.10"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^3.3.0",
+		"@vue/cli-plugin-e2e-nightwatch": "^3.8.0",
+		"@vue/cli-plugin-eslint": "^3.3.0",
+		"@vue/cli-plugin-pwa": "^3.3.0",
+		"@vue/cli-plugin-unit-mocha": "^3.3.0",
+		"@vue/cli-service": "^3.8.0",
+		"@vue/eslint-config-prettier": "^4.0.1",
+		"@vue/test-utils": "^1.0.0-beta.20",
+		"babel-eslint": "^10.0.1",
+		"chai": "^4.1.2",
+		"eslint": "^5.8.0",
+		"eslint-config-prettier": "^4.3.0",
+		"eslint-plugin-vue": "^5.0.0",
+		"lint-staged": "^8.1.0",
+		"node-sass": "^4.9.0",
+		"sass-loader": "^7.0.1",
+		"vue-template-compiler": "^2.6.10"
+	},
+	"gitHooks": {
+		"pre-commit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.js": [
+			"vue-cli-service lint",
+			"git add"
+		],
+		"*.vue": [
+			"vue-cli-service lint",
+			"git add"
+		]
+	}
 }

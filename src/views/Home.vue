@@ -1,126 +1,49 @@
 <template>
-  <vk-grid gutter="collapse">
-    <div class="uk-width-1-6 full-height" id="sidebar">
-      <h3 class="uk-text-lead uk-text-danger">Alligator</h3>
-      <hr>
-
-      <div class="uk-width-1-1@s uk-width-1-1@m">
-        <vk-nav style="height:100%">
-          <vk-nav-item-parent type="primary" title="Divisions">
-            <vk-nav-item-parent href="#" title="Slogan TY">
-              <vk-nav-item v-for="(i, index) in ii" :key="index" href="#" title="Sub Item"></vk-nav-item>
-            </vk-nav-item-parent>
-            <br>
-            <vk-nav-item-parent href="#" title="Slogan TY">
-              <vk-nav-item href="#" title="Sub Item"></vk-nav-item>
-              <vk-nav-item href="#" title="Sub Item"></vk-nav-item>
-            </vk-nav-item-parent>
-          </vk-nav-item-parent>
-        </vk-nav>
-
-        <div style="bottom:0px;">
-          <p v-vk-margin>
-            <vk-button type="danger" style="border-radius:50%; padding:0px; margin-right:10px">
-              <vk-icon icon="world" style="padding:15px;"></vk-icon>
-            </vk-button>
-
-            <vk-button type="secondary" style="border-radius:50%; padding:0px;">
-              <vk-icon icon="close" style="padding:15px;"></vk-icon>
-            </vk-button>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="uk-width-5-6" style="padding-bottom:0px;">
-      <drone-map
-        class="uk-width-1-1"
-        style="height:75%"
-        :accessToken="MAPBOX_TOKEN"
-        :startLocation="currentLocation"
-      ></drone-map>
-
-      <div class="uk-padding-small">
-        <!-- <h5 style="margin-bottom:4px;">Available drones</h5> -->
-        <vk-grid
-          matched
-          gutter="small"
-          class="uk-width-auto@m uk-flex-center uk-text-center"
-          style="margin:0px;"
-          id="horizontal-scroll"
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <b-card
+          v-for="({ title, description, route, btnText }, index) in actions"
+          :key="index"
+          :title="title"
+          img-src="https://picsum.photos/600/300/?image=25"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mr-2 mb-2"
         >
-          <vk-card
-            class="uk-card-hover"
-            v-for="(i, index) in [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]"
-            :key="index"
-            padding="small"
-          >
-            <img
-              width="90"
-              height="90"
-              src="http://www.pngmart.com/files/6/Drone-Background-PNG.png"
-              alt
-            >
-            <h6 class="uk-text-danger" style="margin-top:5px;">Drone 1</h6>
-          </vk-card>
-        </vk-grid>
+          <b-card-text>{{ description }}</b-card-text>
+          <router-link :to="route">
+            <b-button variant="primary">{{ btnText }}</b-button>
+          </router-link>
+        </b-card>
       </div>
     </div>
-  </vk-grid>
+  </div>
 </template>
 
 <script>
-import DroneMap from "@/components/Map";
-import LocationAPI from "@/utilities/location";
-
-const MAPBOX_TOKEN = process.env.VUE_APP_MAPBOX_TOKEN;
-
 export default {
-  async created() {
-    let location = await LocationAPI.currentPosition();
-    console.log(location);
-    this.currentLocation = [
-      location.coords.latitude,
-      location.coords.longitude
-    ];
-    for (var i = 0; i < 10; i++) {
-      this.ii.push(i);
-    }
-  },
   name: "Home",
-  components: { DroneMap },
   data() {
     return {
-      ii: [],
-      currentLocation: [3.1547392, 6.670745600000001],
-      MAPBOX_TOKEN
+      actions: [
+        {
+          title: "Manage divisions",
+          description:
+            "The best way to manage swarms is to use a division approach.",
+          route: "/division",
+          btnText: "Manage"
+        },
+        {
+          title: "Issue command",
+          description: "Send flight commands to division of choice.",
+          route: "/command",
+          btnText: "Command"
+        }
+      ]
     };
   }
 };
 </script>
-
-<style lang="scss" scoped>
-#horizontal-scroll {
-  max-height: 130px;
-  overflow: auto !important;
-  margin: 0px;
-  padding: 0px;
-}
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-</style>
