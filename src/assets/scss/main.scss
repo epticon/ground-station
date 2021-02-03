@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Google sans";
+  src: url("../fonts/GoogleSans-Medium.ttf");
+}
+@import "./frameworks/bootstrap";
+@import "./map";
+@import "./sidebar";
+@import "./container";
+
+body {
+  font-family: "Google sans", sans-serif;
+  min-height: 100vh;
+}
+
+.full-height {
+  max-height: 100vh;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.card-header {
+  background-color: transparent;
+}

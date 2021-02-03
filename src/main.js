@@ -1,19 +1,27 @@
 import Vue from "vue";
-import Vuikit from "vuikit";
-import VuikitIcons from "@vuikit/icons";
-import "@vuikit/theme";
+import BootstrapVue from "bootstrap-vue";
+import VueNativeSock from "vue-native-websocket";
+import "@/assets/scss/main.scss";
 
 import App from "@/App.vue";
 import router from "@/router/";
 import store from "@/store/";
 import "@/serviceworkers/registerServiceWorker";
 
-Vue.use(Vuikit);
-Vue.use(VuikitIcons);
+Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+Vue.use(VueNativeSock, process.env.VUE_APP_SWARM_URL, {
+  store: store,
+  format: "json",
+  reconnection: true, // (Boolean) whether to reconnect automatically (false)
+  reconnectionDelay: 3000
+  // reconnectionAttempts: 5, // (Number) number of reconnection attempts before giving up (Infinity),
+});
+new Vue({ router, store, render: h => h(App) }).$mount("#app");
+
+// Vue.component("Var", {
+//   render() {
+//     return this.$scopedSlots.default(this.$attrs);
+//   }
+// });
